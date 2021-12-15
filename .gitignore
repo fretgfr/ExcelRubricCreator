@@ -2,6 +2,4 @@
 build/
 __pycache__/
 .venv/
-build.sh
-build.bat
 .DS_Store
