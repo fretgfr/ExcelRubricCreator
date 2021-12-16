@@ -15,6 +15,7 @@ def main():
     ###########################################################################################
     POINTS = False
     TOTAL_POINTS = 0
+    
     HEADERS = True
     STARTING_ROW = 2
     HEADER_ROW = 1
