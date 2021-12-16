@@ -102,12 +102,12 @@ class RubricCreator(Frame):
                 letter_grade = self.get_entry_value()
                 self.clear_entry_value()
                 self.LETTER_GRADES.append(letter_grade)
-                self.write_to_text_area(f"Got {letter_grade}! Input the next grade you can get, leave blank to stop.")
+                self.write_to_text_area(f"Got {letter_grade}! Input the next grade you can get, leave blank twice to stop.")
             else: #Progress step if they left it blank
                 self.LETTER_GRADES = self.LETTER_GRADES[::-1] #Reverse the list so it starts asking the next step with the first value input.
                 self.progress_step()
         else: # is the first run
-            self.write_to_text_area("Input a grade you can get, leave the entry blank to stop. (e.x. A)")
+            self.write_to_text_area("Input a grade you can get, leave the entry blank twice to stop. (e.x. A)")
             self.step_flag = not self.step_flag
 
     def handle_grade_minimums(self):
@@ -198,7 +198,7 @@ class RubricCreator(Frame):
 
                 letter_cell.value = letter
                 minimum_cell.value = minimum
-                
+
                 self.LETTER_GRADES_DICT[letter_grade] = minimum_cell.coordinate
 
                 row += 1
