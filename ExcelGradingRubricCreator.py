@@ -15,7 +15,7 @@ def main():
     ###########################################################################################
     POINTS = False
     TOTAL_POINTS = 0
-    
+
     HEADERS = True
     STARTING_ROW = 2
     HEADER_ROW = 1
@@ -97,7 +97,7 @@ def main():
     ###########################################################################################
     print("Enter assignment names and weights, leave name blank to end.")
     if POINTS:
-        print("Weights should be the number of poitns the asignment is worth.")
+        print("Weights should be the number of points the asignment is worth.")
     else:
         print("Weights should be a decimal, (e.g. a paper worth 10% of your grade would have a decimal weight of 0.10)")
     while True:
