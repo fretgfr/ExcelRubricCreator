@@ -1,6 +1,7 @@
 from tkinter import Tk, Button, Entry, Text, Frame, END
 from tkinter.messagebox import showerror, showinfo, askyesno
 from enum import Enum
+import sys
 import openpyxl
 
 HEADERS = True
@@ -35,7 +36,7 @@ class RubricCreator(Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        self.bind("<Return>", lambda: self.next())
+        self.parent.bind("<Return>", lambda event: self.next())
 
         self.POINTS = False
         
@@ -118,8 +119,8 @@ class RubricCreator(Frame):
                 showerror("You have to provide an integer.")
                 return
             self.LETTER_GRADES_DICT[self.LAST_LETTER_GRADE] = minimum
-            self.clear_entry_value()
             # Move to the next one.
+            self.clear_entry_value()
             try:
                 grade_val = self.LETTER_GRADES.pop()
                 self.LAST_LETTER_GRADE = grade_val
@@ -197,6 +198,7 @@ class RubricCreator(Frame):
 
                 letter_cell.value = letter
                 minimum_cell.value = minimum
+                
                 self.LETTER_GRADES_DICT[letter_grade] = minimum_cell.coordinate
 
                 row += 1
@@ -291,6 +293,10 @@ class RubricCreator(Frame):
             # Save file.
             if not output_name.endswith(".xlsx"): output_name += ".xlsx"
             wbook.save(output_name)
+
+            self.write_to_text_area("Your file has been created!")
+            showinfo("Finished", f"Congratulations, you're all set, your file {output_name} has been saved.")
+            sys.exit(0)
             
         else:
             self.write_to_text_area("Enter the filename for your rubric.")
