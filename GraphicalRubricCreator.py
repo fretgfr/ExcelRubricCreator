@@ -255,8 +255,8 @@ class RubricCreator(Frame):
             #Final formula needs to look similar to "=IF(A1>F1, A, IF(A1>F2, B, IF(A1>F3, C, ....))"
             final_letter_formula = f"=IF("
             paren_counter = 0
-            for letter in sorted(LETTER_GRADES_DICT):
-                minval = LETTER_GRADES_DICT[letter]
+            for letter in sorted(self.LETTER_GRADES_DICT):
+                minval = self.LETTER_GRADES_DICT[letter]
                 final_letter_formula += f'{FINAL_PERCENTAGE_CELL.coordinate} >= {minval}, "{letter}", IF('
                 paren_counter += 1
 
@@ -277,10 +277,10 @@ class RubricCreator(Frame):
                 cell.value = "Assignment Name"
 
                 cell = sheet.cell(HEADER_ROW, ASSIGNMENT_WEIGHT_COLUMN)
-                cell.value = "Weight" if not POINTS else "Point Value"
+                cell.value = "Weight" if not self.POINTS else "Point Value"
                 
                 cell = sheet.cell(HEADER_ROW, ASSIGNMENT_GRADE_COLUMN)
-                cell.value = "Grade" if not POINTS else "Points Earned"
+                cell.value = "Grade" if not self.POINTS else "Points Earned"
 
                 cell = sheet.cell(HEADER_ROW, LETTER_GRADE_LETTER_COLUMN)
                 cell.value = "Letter Grade"
