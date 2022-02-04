@@ -1,6 +1,6 @@
 
 md build
 
-copy ExcelGradingRubricCreator.py build/
+copy GraphicalRubricCreator.py build
 cd build
-pyinstaller --onefile --noconsole ExcelGradingRubricCreator.py
+pyinstaller -F --upx-dir=C:\upx GraphicalRubricCreator.py
