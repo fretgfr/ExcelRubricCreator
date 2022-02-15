@@ -23,7 +23,7 @@ The script will start by asking you whether you want to generate a file that cal
 
 ### 2. Enter Possible Grades
 
-The script will then ask youu to enter the possible grades you can earn for the class. A typical example would be
+The script will then ask you to enter the possible grades you can earn for the class. A typical example would be
 ```
 A
 A-
